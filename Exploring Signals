@@ -1,0 +1,23 @@
+int ledPin = 11;
+int sensorInput = A0;
+
+boolean ledIsOn = false;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int lightLevel = analogRead(A0);
+  
+  if (lightLevel<512) {
+    digitalWrite(ledPin, HIGH);
+    ledIsOn = true;
+  } else {
+    digitalWrite(ledPin, LOW);
+    ledIsOn = false;
+  }
+Serial.println(lightLevel);
+  
+}
